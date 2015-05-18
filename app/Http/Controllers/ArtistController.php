@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ArtistController extends Controller {
 
 	/**
-	* Show the application welcome screen to the user.
+	* Load all the artists and send it to view on homepage
 	*
 	* @return Response
 	*/
@@ -18,7 +18,7 @@ class ArtistController extends Controller {
 	}
 
 	/**
-	* Show the application welcome screen to the user.
+	* Get the form request and update the DB with new artist
 	*
 	* @return Response
 	*/
@@ -28,7 +28,7 @@ class ArtistController extends Controller {
 	}
 
 	/**
-	* Show the application welcome screen to the user.
+	* Update the artist indicated with the name provided
 	*
 	* @return Response
 	*/
@@ -38,12 +38,16 @@ class ArtistController extends Controller {
 	}
 
 	/**
-	* Show the application welcome screen to the user.
+	* Delete the artist from the database based on his id.
 	*
 	* @return Response
 	*/
-	public function delArist()
+	public function delArist($id)
 	{
+		//find the artist from the table
+		$artist = Artist::find($id);
+
+		$artist->delete();
 
 	}
 

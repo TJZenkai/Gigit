@@ -24,10 +24,14 @@ Route::controllers([
 ]);
 */
 
+//get all artists on page load
 Route::get('/', 'ArtistController@getArtists');
 
+//add a new artist to the database
 Route::post('artist', 'ArtistController@postArtist');
 
-Route::put('artist/{id}', 'ArtistController@updateArtist');
+//update the artist already in the database
+Route::put('artist', 'ArtistController@updateArtist');
 
+//delete the artist from the database
 Route::delete('artist/{id}', 'ArtistController@delArtist');
