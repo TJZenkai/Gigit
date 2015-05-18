@@ -33,4 +33,14 @@ class WelcomeController extends Controller {
 		return view('welcome');
 	}
 
+	/**
+	* Show the application welcome screen to the user.
+	*
+	* @return Response
+	*/
+	public function test()
+	{
+		return 'This is a test page';
+	}
+
 }

@@ -11,11 +11,23 @@
 |
 */
 
+/*
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
+
+Route::get('test', 'WelcomeController@test');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+*/
+
+Route::get('/', 'ArtistController@getArtists');
+
+Route::post('artist', 'ArtistController@postArtist');
+
+Route::put('artist/{id}', 'ArtistController@updateArtist');
+
+Route::delete('artist/{id}', 'ArtistController@delArtist');
