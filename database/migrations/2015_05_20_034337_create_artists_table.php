@@ -15,7 +15,7 @@ class CreateArtistsTable extends Migration {
 		Schema::create('artists', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('artist_name');
+			$table->string('artist_name')->unique();
 			$table->timestamps();
 		});
 	}

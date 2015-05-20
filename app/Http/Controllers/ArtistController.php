@@ -8,60 +8,85 @@ use Request;
 class ArtistController extends Controller {
 
 	/**
-	* Load all the artists and send it to view on homepage
-	*
-	* @return Artist blade template with all artist rows as json.
-	*/
-	public function getArtists()
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
 	{
-		$artist = \DB::table('artists')->get();
-
-		return view('artists')->with('artist', $artist);
-
+		return \App\Artist::all();
 	}
 
 	/**
-	* Get the form request and update the DB with new artist
-	*
-	* @return Response
-	*/
-	public function postArtist()
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
 	{
-		$input = Request::all();
+		//
+	}
 
-		$artist_name = $input['name'];
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$input = Input:json();
 
-		$artist = new \App\Artist;
-		$artist->artist_name = $artist_name;
+		\App\Artist::create(array(
+			'artist_name' => $input->artist_name
+		));
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		return \App\Artist::find($id);
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$artist = \App\Artist::find($id);
+		$input = Input::json();
+
+		$artist->artist_name = $input->artist_name;
 		$artist->save();
-
-		return view('artists');
 	}
 
 	/**
-	* Update the artist indicated with the name provided
-	*
-	* @return Response
-	*/
-	public function updateArist()
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
 	{
-
+		return \App\Artist::find($id)->delete();
 	}
-
-	/**
-	* Delete the artist from the database based on his id.
-	*
-	* @return Response
-	*/
-	public function delArist($id)
-	{
-		//find the artist from the table
-	 	$artist = \App\Artist::find($id);
-
-	 	$artist->delete();
-
-	}
-
-
 
 }
