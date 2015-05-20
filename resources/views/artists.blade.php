@@ -15,10 +15,11 @@
         </thead>
       </table>
 
-      <script id="allArtistsTemplate" type="text/template">
+     <script id="allArtistsTemplate" type="text/template">
         <td> <%= artist_name %> </td>
         <td><a href="#artists/<%= id %>" class="delete">Delete</a></td>
       </script>
+
   </div>
 
 @stop

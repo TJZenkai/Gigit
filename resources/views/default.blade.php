@@ -52,7 +52,7 @@
           								 <form id="addartist-nav" class="form" accept-charset="UTF-8">
 														<input type="hidden" name="_token" value="{{ csrf_token() }}">
           										<div class="form-group">
-          											 <input type="text" id="artist-name" name="name" class="form-control" maxlength="30" placeholder="Artist Name" required>
+          											 <input type="text" id="artist-name" name="artist_name" class="form-control" maxlength="30" placeholder="Artist Name" required>
           										</div>
           										<div class="form-group">
           											 <button type="submit" class="btn btn-primary btn-block">Add Artist</button>
@@ -92,5 +92,6 @@
 			new App.Views.App({ collection: App.artists })
 		});
 		</script>
+
 </body>
 </html>

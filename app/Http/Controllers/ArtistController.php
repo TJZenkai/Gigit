@@ -39,6 +39,8 @@ class ArtistController extends Controller {
 		$artist = new \App\Artist;
 		$artist->artist_name = $input['artist_name'];
 		$artist->save();
+
+		return $artist;
 	}
 
 	/**
@@ -71,10 +73,10 @@ class ArtistController extends Controller {
 	 */
 	public function update($id)
 	{
-		$artist = \App\Artist::find($id);
-		$input = Input::json();
+		$input = Input::all();
 
-		$artist->artist_name = $input->artist_name;
+		$artist = \App\Artist::find($id);
+		$artist->artist_name = $input['artist_name'];
 		$artist->save();
 	}
 

@@ -23,9 +23,9 @@ App.Views.AddArtist = Backbone.View.extend({
   addArtist: function(e) {
     e.preventDefault();
 
-    this.collection.create({
+    var newArtist = this.collection.create({
       artist_name: this.$('#artist-name').val()
-    }, { wait: true });
+    }, {wait: true });
 
     this.clearForm();
   },
@@ -45,12 +45,12 @@ App.Views.Artists = Backbone.View.extend({
 
   render: function() {
     this.collection.each( this.addOne, this);
+    console.log(this.el);
     return this;
   },
 
   addOne: function(artist) {
     var artistView = new App.Views.Artist({ model: artist });
-    console.log( artistView.render().el);
     this.$el.append(artistView.render().el);
   }
 });
