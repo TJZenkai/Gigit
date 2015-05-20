@@ -1,0 +1,67 @@
+
+/* navbar content */
+#logo {
+  width: 100px;
+  margin: 6px 10px 0px 0px;
+}
+
+.nav-search {
+  width: 300px;
+  height: 49px;
+  border: none;
+  background-color: #e5e5e5;
+  font-size: 20px;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+@media (max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+#main-content {
+  margin: 100px;
+}
+
+.headline {
+  text-align: center;
+}
+
+h1 {
+  font-family: BrownStd-Regular, Helvetica, Arial, sans-serif;
+  font-size: 33px;
+}
+
+.cnt {
+  margin-top:80px;
+}

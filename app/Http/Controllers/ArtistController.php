@@ -3,18 +3,20 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class ArtistController extends Controller {
 
 	/**
 	* Load all the artists and send it to view on homepage
 	*
-	* @return Response
+	* @return Artist blade template with all artist rows as json.
 	*/
 	public function getArtists()
 	{
-		//$artist = DB::table('artist')->get();
+		$artist = \DB::table('artists')->get();
+
+		return view('artists')->with('artist', $artist);
 
 	}
 
@@ -23,16 +25,17 @@ class ArtistController extends Controller {
 	*
 	* @return Response
 	*/
-	public function postArist()
+	public function postArtist()
 	{
-		$input = Input::all();
+		$input = Request::all();
 
 		$artist_name = $input['name'];
 
-		$artist = new Artist;
+		$artist = new \App\Artist;
 		$artist->artist_name = $artist_name;
 		$artist->save();
 
+		return view('artists');
 	}
 
 	/**
@@ -53,7 +56,7 @@ class ArtistController extends Controller {
 	public function delArist($id)
 	{
 		//find the artist from the table
-	 	$artist = Artist::find($id);
+	 	$artist = \App\Artist::find($id);
 
 	 	$artist->delete();
 
