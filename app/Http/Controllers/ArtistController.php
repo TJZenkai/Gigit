@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Request;
+use Input;
 
 class ArtistController extends Controller {
 
@@ -34,11 +34,11 @@ class ArtistController extends Controller {
 	 */
 	public function store()
 	{
-		$input = Input:json();
+		$input = Input::all();
 
-		\App\Artist::create(array(
-			'artist_name' => $input->artist_name
-		));
+		$artist = new \App\Artist;
+		$artist->artist_name = $input['artist_name'];
+		$artist->save();
 	}
 
 	/**

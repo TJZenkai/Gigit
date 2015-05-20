@@ -8,7 +8,7 @@
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
-
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -49,10 +49,10 @@
           				<li>
           					 <div class="row">
           							<div class="col-md-12">
-          								 <form class="form" role="form" method="POST" action="http://gigit.local:8000/artist" accept-charset="UTF-8" id="login-nav">
-                             <input name="_token" type="hidden" value="{!! csrf_token() !!}">
+          								 <form id="addartist-nav" class="form" accept-charset="UTF-8">
+														<input type="hidden" name="_token" value="{{ csrf_token() }}">
           										<div class="form-group">
-          											 <input type="text" name="name" class="form-control" maxlength="30" placeholder="Artist Name" required>
+          											 <input type="text" id="artist-name" name="name" class="form-control" maxlength="30" placeholder="Artist Name" required>
           										</div>
           										<div class="form-group">
           											 <button type="submit" class="btn btn-primary btn-block">Add Artist</button>
@@ -75,11 +75,22 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.0/backbone-min.js"></script>
+	<script src="js/csrf-token.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="/js/main.js"></script>
-	<script src="/js/models.js"></script>
-	<script src="/js/views.js"></script>
-	<script src="/js/collections.js"></script>
-	<script src="/js/router.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/models.js"></script>
+	<script src="js/collections.js"></script>
+	<script src="js/views.js"></script>
+	<script src="js/router.js"></script>
+
+	<script>
+		new App.Router;
+		Backbone.history.start();
+
+		App.artists = new App.Collections.Artists;
+		App.artists.fetch().then(function() {
+			new App.Views.App({ collection: App.artists })
+		});
+		</script>
 </body>
 </html>
