@@ -14,6 +14,7 @@ class ArtistController extends Controller {
 	*/
 	public function getArtists()
 	{
+		//$artist = DB::table('artist')->get();
 
 	}
 
@@ -24,6 +25,13 @@ class ArtistController extends Controller {
 	*/
 	public function postArist()
 	{
+		$input = Input::all();
+
+		$artist_name = $input['name'];
+
+		$artist = new Artist;
+		$artist->artist_name = $artist_name;
+		$artist->save();
 
 	}
 
@@ -45,9 +53,9 @@ class ArtistController extends Controller {
 	public function delArist($id)
 	{
 		//find the artist from the table
-		$artist = Artist::find($id);
+	 	$artist = Artist::find($id);
 
-		$artist->delete();
+	 	$artist->delete();
 
 	}
 
