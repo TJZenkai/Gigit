@@ -5,7 +5,7 @@
     <div class="headline">
      <h1>DISCOVER YOUR FAVORITE ARTISTS</h1>
     <div>
-
+<!--
       <table id="allArtists">
         <thead>
           <tr>
@@ -13,16 +13,24 @@
             <td>config</td>
           </tr>
         </thead>
-      </table>
+      </table> -->
+      <ul id="allArtists">
+      <ul>
 
       <div id="editArtist">
       </div>
-
+      <!--
      <script id="allArtistsTemplate" type="text/template">
         <td> <%= artist_name %> </td>
         <td><a href="#artists/<%= id %>/edit" class="edit">Edit</a></td>
         <td><a href="#artists/<%= id %>" class="delete">Delete</a></td>
-      </script>
+      </script>-->
+      <script id="allArtistsTemplate" type="text/template">
+         <li> <%= artist_name %>
+           <span><a href="#artists/<%= id %>/edit" class="edit"><i class="teal fa fa-pencil"></i></a></span>
+           <span><a href="#artists/<%= id %>" class="delete"><i class="red fa fa-times"></i></a></span>
+         </li>
+       </script>
 
       <script id="editArtistTemplate" type="text/template">
         <form id="editartist-div" class="form" accept-charset="UTF-8">

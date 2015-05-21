@@ -78,7 +78,7 @@ App.Views.EditArtist = Backbone.View.extend({
 
 
 App.Views.Artists = Backbone.View.extend({
-  tagName: 'tbody',
+  tagName: 'ul',
 
   initialize: function() {
     this.collection.on('add', this.addOne, this);
@@ -97,7 +97,7 @@ App.Views.Artists = Backbone.View.extend({
 });
 
 App.Views.Artist = Backbone.View.extend({
-  tagName: 'tr',
+  tagName: 'li',
 
   template: template('allArtistsTemplate'),
 
