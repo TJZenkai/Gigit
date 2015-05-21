@@ -78,6 +78,8 @@ class ArtistController extends Controller {
 		$artist = \App\Artist::find($id);
 		$artist->artist_name = $input['artist_name'];
 		$artist->save();
+
+		return $artist;
 	}
 
 	/**
