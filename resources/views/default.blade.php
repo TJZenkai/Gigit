@@ -22,7 +22,8 @@
 </head>
 <body>
   <!-- navbar -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="main-cont">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_static_fixed">
@@ -36,12 +37,17 @@
             </a>
         </div>
         <div class="collapse navbar-collapse nav-bkg" id="navbar_static_fixed">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<div id="editArtist">
+							</div>
+						</li>
+					</ul>
             <ul class="nav navbar-nav navbar-right">
-
                 <li>
-                  <div class="form-group">
+                  <!--<div class="form-group">
                     <input type="text" class="form-control pull-right nav-search" placeholder="Search Artists">
-                  </div>
+                  </div>-->
                 </li>
 
                 <li class="dropdown">
@@ -71,7 +77,6 @@
 <!-- End navbar -->
 
   @yield('content')
-
 	<!-- Scripts -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
