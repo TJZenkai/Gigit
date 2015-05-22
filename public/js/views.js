@@ -78,56 +78,21 @@ App.Views.EditArtist = Backbone.View.extend({
 
 
 App.Views.Artists = Backbone.View.extend({
-  el: "#main-cont",
-
   tagName: 'ul',
 
   initialize: function() {
     this.collection.on('add', this.addOne, this);
-
-    this.on('change:searchFilter', this.filterBySearch, this);
-
-    this.collection.on('reset', this.render, this);
-  },
-
-  events: {
-    'keyup #artist-name': 'searchFilter'
   },
 
   render: function() {
-    var self = this;
-		$('#allArtists').empty();
-		_.each(this.collection.models, function(artist) {
-			self.renderPerson(artist);
-		}, this);
-  },
-
-  renderPerson: function(artist) {
-  var newartist = new App.Views.Artist({
-    model: artist
-  });
-    $('#allArtists').append(newartist.render().el);
+    this.collection.each( this.addOne, this);
+    console.log(this.el);
+    return this;
   },
 
   addOne: function(artist) {
     var artistView = new App.Views.Artist({ model: artist });
     this.$el.append(artistView.render().el);
-  },
-
-  searchFilter: function(e) {
-    this.searchFilter = e.target.value;
-    this.trigger('change:searchFilter');
-  },
-
-  filterBySearch: function() {
-    console.log(this.collection.model);
-    var data = this.collection.models;
-    this.collection.reset(data, {silent: true});
-    var filterString = this.searchFilter,
-      filtered = _.filter(this.collection.models, function(item){
-        return item.get('artist_name').toLowerCase().indexOf(filterString.toLowerCase())!== -1;
-      });
-      this.collection.reset(filtered);
   }
 });
 

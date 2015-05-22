@@ -14,7 +14,7 @@ class ArtistController extends Controller {
 	 */
 	public function index()
 	{
-		return \DB::table('artists')->Orderby('id', 'desc')->get();
+		return \DB::table('artists')->get();
 	}
 
 	/**
