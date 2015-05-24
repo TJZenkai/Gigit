@@ -15,10 +15,10 @@
         </thead>
       </table> -->
       <ul id="allArtists">
+        <li id="newartist">
+        </li>
       <ul>
 
-      <div id="editArtist">
-      </div>
       <!--
      <script id="allArtistsTemplate" type="text/template">
         <td> <%= artist_name %> </td>
@@ -36,11 +36,11 @@
         <form id="editartist-div" class="form" accept-charset="UTF-8">
          <input type="hidden" name="_token" value="{{ csrf_token() }}">
            <div class="form-group">
-              <input type="text" id="editartist-name" name="editartist_name" class="form-control" maxlength="30" value="<%= artist_name %>" placeholder="Rename Artist" required>
+              <input type="text" id="editartist-name" name="editartist_name" class="fl form-control nav-search" maxlength="30" value="<%= artist_name %>" placeholder="Rename Artist" required>
            </div>
            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">Rename Artist</button>
-              <button type="button" class="btn btn-primary btn-block cancel">Close</button>
+              <button type="submit" class="btn btn-primary fl nav-button-1"><i class="fa fa-check"></i></button>
+              <button type="button" class="btn btn-primary cancel fl nav-button-2"><i class="fa fa-sign-out"></i></button>
            </div>
         </form>
        </script>

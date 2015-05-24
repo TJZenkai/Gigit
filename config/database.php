@@ -1,5 +1,12 @@
 <?php
 
+$url = parse_url("mysql://bafca753e56811:4f7812b6@us-cdbr-iron-east-02.cleardb.net/heroku_e8439d9685f06ab?reconnect=true");
+
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
+
 return [
 
 	/*
@@ -44,6 +51,7 @@ return [
 	|
 	*/
 
+
 	'connections' => [
 
 		'sqlite' => [
@@ -54,10 +62,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', '127.0.0.1'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
+			'host'      => $host,
+			'database'  => $database,
+			'username'  => $username,
+			'password'  => $password,
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

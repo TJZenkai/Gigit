@@ -13,6 +13,10 @@
   font-size: 20px;
 }
 
+.navbar-left {
+  margin-left: 280px;
+}
+
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -112,4 +116,22 @@ span a{
 
 .teal {
   color: #46b98a;
+}
+
+.form-group, .fl {
+  float: left;
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+button .fl {
+  width: 20px;
+}
+
+.nav-button-1 {
+  margin: 8px;
+}
+
+.nav-button-2 {
+  margin-top: 8px;
 }
