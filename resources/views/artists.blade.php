@@ -36,7 +36,7 @@
         <form id="editartist-div" class="form" accept-charset="UTF-8">
          <input type="hidden" name="_token" value="{{ csrf_token() }}">
            <div class="form-group">
-              <input type="text" id="editartist-name" name="editartist_name" class="fl form-control nav-search" maxlength="30" value="<%= artist_name %>" placeholder="Rename Artist" required>
+              <input type="text" id="editartist-name" name="editartist_name" class="fl form-control nav-search" required pattern="[a-zA-Z0-9\s]+" maxlength="30" value="<%= artist_name %>" placeholder="Rename Artist" required>
            </div>
            <div class="form-group">
               <button type="submit" class="btn btn-primary fl nav-button-1"><i class="fa fa-check"></i></button>
